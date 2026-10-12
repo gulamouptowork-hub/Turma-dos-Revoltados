@@ -609,7 +609,7 @@
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Vídeo institucional">
   <button aria-label="Fechar">×</button>
-  <video id="modalVideo" src="assets/video-institucional.mp4" controls playsinline preload="none"></video>
+  <video id="modalVideo" src="https://video.wixstatic.com/video/e5598b_2d35b7828ec34a41a7bfad6f521d71f7/720p/mp4/file.mp4" controls playsinline preload="none"></video>
 </div>
 
 <script>
@@ -655,7 +655,7 @@
   const activate = (el, fn) => { el.addEventListener('click', fn, {once:true}); el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); } }); };
   activate($('#vidMain'), function () {
     const v = document.createElement('video');
-    v.src = 'assets/video-institucional.mp4'; v.controls = true; v.autoplay = true; v.playsInline = true;
+    v.src = 'https://video.wixstatic.com/video/e5598b_2d35b7828ec34a41a7bfad6f521d71f7/720p/mp4/file.mp4'; v.controls = true; v.autoplay = true; v.playsInline = true;
     this.appendChild(v); this.classList.add('playing');
   });
   activate($('#vidYT'), function () {
