@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turma dos Revoltados — Preparação para Exames de Admissão</title>
+<meta name="description" content="Centro de preparação para exames de admissão às universidades em Maputo e Matola. Turmas de manhã, tarde e noite em 5 polos.">
+<meta name="theme-color" content="#2a2a71">
+<link rel="icon" href="assets/logo-light.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#2a2a71; --navy-d:#1c1c50; --navy-dd:#121238;
+    --orange:#ee7223; --orange-l:#f49940; --orange-d:#d45f14;
+    --paper:#ffffff; --soft:#f6f6fa; --line:#e4e4ee;
+    --text:#1c1c3a; --muted:#5e5e7a;
+    --radius:18px; --max:1180px;
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Montserrat,system-ui,sans-serif;color:var(--text);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:Kanit,Montserrat,sans-serif;line-height:1.08;font-weight:700;letter-spacing:-.005em}
+  img,video{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  section{padding:96px 0;position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:Kanit;font-weight:600;font-size:.9rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+  .eyebrow::before{content:"";width:26px;height:3px;border-radius:3px;background:currentColor}
+  .head{max-width:660px;margin-bottom:52px}
+  .head h2{font-size:clamp(2rem,4.4vw,3.1rem);margin:12px 0 14px;color:var(--navy)}
+  .head p{color:var(--muted);font-size:1.05rem}
+  .center{text-align:center;margin-left:auto;margin-right:auto}
+  .center .eyebrow{justify-content:center}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-family:Kanit;font-weight:600;font-size:1.05rem;letter-spacing:.02em;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s,background .25s,color .25s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn svg{width:20px;height:20px;transition:transform .25s var(--ease)}
+  .btn:hover svg{transform:translateX(3px)}
+  .btn-orange{background:var(--orange);color:#fff;box-shadow:0 12px 30px -10px rgba(238,114,35,.8)}
+  .btn-orange:hover{background:var(--orange-d)}
+  .btn-line{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(6px)}
+  .btn-line:hover{background:#fff;color:var(--navy)}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-navy:hover{background:var(--navy-d)}
+
+  /* ---------- Header ---------- */
+  header{position:fixed;inset:0 0 auto 0;z-index:80;transition:background .35s,box-shadow .35s,height .35s}
+  header.solid{background:rgba(28,28,80,.96);backdrop-filter:blur(12px);box-shadow:0 10px 30px -18px rgba(0,0,0,.6)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px;transition:height .35s}
+  header.solid .nav{height:68px}
+  .brand img{height:50px;width:auto;transition:height .35s}
+  header.solid .brand img{height:42px}
+  .nav ul{display:flex;gap:30px;list-style:none}
+  .nav ul a{position:relative;color:#e4e4f3;text-decoration:none;font-weight:600;font-size:.92rem}
+  .nav ul a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+  .nav ul a:hover{color:#fff}
+  .nav ul a:hover::after{transform:scaleX(1)}
+  .nav .btn{padding:11px 20px;font-size:.95rem}
+  .burger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:6px}
+  @media (max-width:940px){
+    .nav ul{position:fixed;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--navy-d);padding:10px 20px 24px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:.3s var(--ease)}
+    .nav ul.open{transform:none;opacity:1;pointer-events:auto}
+    .nav ul a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav ul a::after{display:none}
+    .burger{display:block}
+    .nav .btn{display:none}
+    header:has(ul.open){background:var(--navy-d)}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{min-height:min(100vh,920px);min-height:min(100svh,920px);display:flex;align-items:center;color:#fff;padding:140px 0 120px;overflow:hidden;isolation:isolate}
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.06);animation:slowzoom 24s ease-in-out infinite alternate}
+  @keyframes slowzoom{to{transform:scale(1.14)}}
+  .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(18,18,56,.96) 0%,rgba(28,28,80,.86) 45%,rgba(42,42,113,.45) 100%)}
+  .hero::after{content:"";position:absolute;right:-180px;bottom:-220px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(238,114,35,.45),transparent 65%);z-index:-1;animation:float 9s ease-in-out infinite}
+  @keyframes float{50%{transform:translate(-30px,-30px)}}
+  .hero-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:60px;align-items:center;width:100%}
+  .tag{display:inline-flex;align-items:center;gap:10px;background:rgba(238,114,35,.16);border:1px solid rgba(238,114,35,.5);padding:7px 16px;border-radius:999px;font-size:.88rem;font-weight:600}
+  .tag i{width:9px;height:9px;border-radius:50%;background:var(--orange);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(238,114,35,.7)}100%{box-shadow:0 0 0 12px rgba(238,114,35,0)}}
+  .hero h1{font-size:clamp(2.8rem,7vw,5.4rem);font-weight:800;margin:24px 0 22px;text-transform:uppercase;line-height:.98}
+  .hero h1 .line{display:block;overflow:hidden}
+  .hero h1 .line span{display:inline-block;transform:translateY(105%);animation:up .9s var(--ease) forwards}
+  .hero h1 .line:nth-child(2) span{animation-delay:.12s}
+  .hero h1 .line:nth-child(3) span{animation-delay:.24s}
+  .hero h1 .o{color:var(--orange)}
+  @keyframes up{to{transform:none}}
+  .hero .lead{font-size:1.12rem;color:#d7d7ec;max-width:560px;margin-bottom:36px}
+  .ctas{display:flex;flex-wrap:wrap;gap:14px}
+  .play{display:inline-flex;align-items:center;gap:14px;background:none;border:0;color:#fff;font-family:Kanit;font-weight:600;font-size:1.05rem;cursor:pointer;margin-top:30px}
+  .play b{width:54px;height:54px;border-radius:50%;background:#fff;color:var(--orange);display:grid;place-items:center;position:relative}
+  .play b::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(255,255,255,.4);animation:ring 2s infinite}
+  @keyframes ring{to{transform:scale(1.35);opacity:0}}
+  .play svg{width:20px;height:20px;margin-left:3px}
+  .fade-in{opacity:0;transform:translateY(20px);animation:fin .9s var(--ease) forwards}
+  @keyframes fin{to{opacity:1;transform:none}}
+
+  .price-card{background:rgba(255,255,255,.07);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:26px;padding:34px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+  .price-card .ribbon{display:inline-block;background:var(--orange);color:#fff;font-family:Kanit;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:8px}
+  .price-card h3{font-size:1.7rem;margin:14px 0 4px}
+  .price-card .sub{color:#b9b9d8;font-size:.92rem;margin-bottom:20px}
+  .prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+  .prices div{background:#fff;color:var(--navy);border-radius:16px;padding:18px;text-align:center}
+  .prices small{display:block;font-weight:600;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em}
+  .prices strong{font-family:Kanit;font-size:2.2rem;line-height:1.1}
+  .prices strong sup{font-size:.85rem;color:var(--orange);margin-left:2px}
+  .checks{list-style:none;display:grid;gap:10px}
+  .checks li{display:flex;gap:10px;align-items:center;color:#e4e4f3;font-size:.95rem}
+  .checks svg{flex:none;width:20px;height:20px;color:var(--orange)}
+  @media (max-width:940px){.hero-grid{grid-template-columns:1fr;gap:44px}.hero{padding:120px 0 90px}}
+
+  .scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:26px;height:42px;border:2px solid rgba(255,255,255,.5);border-radius:14px}
+  .scroll-hint::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#fff;animation:wheel 1.6s infinite}
+  @keyframes wheel{to{transform:translateY(12px);opacity:0}}
+  @media (max-width:940px){.scroll-hint{display:none}}
+
+  /* ---------- Ticker ---------- */
+  .ticker{background:var(--orange);color:#fff;overflow:hidden;padding:16px 0;white-space:nowrap}
+  .ticker-track{display:inline-flex;gap:48px;animation:marquee 32s linear infinite;font-family:Kanit;font-weight:600;font-size:1.25rem;text-transform:uppercase;letter-spacing:.05em}
+  .ticker-track span{display:inline-flex;align-items:center;gap:48px}
+  .ticker-track span::after{content:"✦";color:var(--navy)}
+  @keyframes marquee{to{transform:translateX(-50%)}}
+
+  /* ---------- Stats ---------- */
+  .stats{padding:72px 0;background:var(--paper)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stat{text-align:center;padding:26px 12px;border-radius:var(--radius);background:var(--soft);border:1px solid var(--line);transition:transform .3s var(--ease),box-shadow .3s}
+  .stat:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(42,42,113,.4)}
+  .stat strong{display:block;font-family:Kanit;font-weight:800;font-size:clamp(2.4rem,5vw,3.4rem);color:var(--navy);line-height:1}
+  .stat strong em{font-style:normal;color:var(--orange)}
+  .stat > span{display:block;margin-top:8px;color:var(--muted);font-weight:500;font-size:.92rem}
+  @media (max-width:760px){.stats-grid{grid-template-columns:1fr 1fr}}
+
+  /* ---------- Turmas de ouro ---------- */
+  .gold{background:var(--orange-l);color:#fff;padding:0;overflow:hidden}
+  .gold-grid{display:grid;grid-template-columns:1fr 1fr;align-items:end;min-height:560px}
+  .gold-text{padding:96px 0}
+  .gold .eyebrow{color:var(--navy)}
+  .gold h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:14px 0 18px;text-transform:uppercase;font-weight:800}
+  .gold h2 span{color:var(--navy)}
+  .gold p{font-size:1.08rem;max-width:520px;color:#fff8f0;font-weight:500}
+  .steps{list-style:none;display:grid;gap:16px;margin:30px 0 36px}
+  .steps li{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.16);border-radius:16px;padding:16px 18px;backdrop-filter:blur(4px)}
+  .steps .n{flex:none;width:40px;height:40px;border-radius:12px;background:var(--navy);display:grid;place-items:center;font-family:Kanit;font-weight:700;font-size:1.1rem}
+  .steps h4{font-size:1.15rem}
+  .steps p{font-size:.95rem;color:#fff3e6;font-weight:500}
+  .gold-img{align-self:end;justify-self:end;width:100%;max-width:640px}
+  .gold-img img{width:100%;height:auto}
+  @media (max-width:940px){.gold-grid{grid-template-columns:1fr}.gold-text{padding:80px 0 20px}.gold-img{justify-self:center}}
+
+  /* ---------- Services ---------- */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+  .card::before{content:"";position:absolute;inset:auto 0 0 0;height:4px;background:linear-gradient(90deg,var(--orange),var(--orange-l));transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -28px rgba(42,42,113,.45);border-color:transparent}
+  .card:hover::before{transform:scaleX(1)}
+  .ic{width:56px;height:56px;border-radius:16px;background:var(--navy);display:grid;place-items:center;margin-bottom:20px;transition:background .35s,transform .35s var(--ease)}
+  .card:hover .ic{background:var(--orange);transform:rotate(-6deg) scale(1.05)}
+  .ic svg{width:26px;height:26px;stroke:#fff}
+  .card h3{font-size:1.35rem;color:var(--navy);margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.96rem}
+  @media (max-width:940px){.cards{grid-template-columns:1fr 1fr}}
+  @media (max-width:580px){.cards{grid-template-columns:1fr}}
+
+  /* ---------- Videos ---------- */
+  .videos{background:var(--navy-dd);color:#fff;overflow:hidden}
+  .videos::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 0% 0%,rgba(238,114,35,.18),transparent 60%),radial-gradient(700px 400px at 100% 100%,rgba(42,42,113,.9),transparent 60%)}
+  .videos .wrap{position:relative}
+  .videos .head h2{color:#fff}
+  .videos .head p{color:#b9b9d8}
+  .vid-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:24px}
+  .vid{position:relative;border-radius:22px;overflow:hidden;background:#000;cursor:pointer;aspect-ratio:16/9;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+  .vid img,.vid video,.vid iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  .vid img{transition:transform .8s var(--ease)}
+  .vid:hover img{transform:scale(1.05)}
+  .vid .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(18,18,56,.9));transition:opacity .3s}
+  .vid .pbtn{position:absolute;left:50%;top:50%;width:78px;height:78px;margin:-39px 0 0 -39px;border-radius:50%;background:var(--orange);display:grid;place-items:center;transition:transform .3s var(--ease);box-shadow:0 0 0 10px rgba(238,114,35,.25)}
+  .vid:hover .pbtn{transform:scale(1.1)}
+  .vid .pbtn svg{width:30px;height:30px;fill:#fff;margin-left:4px}
+  .vid .cap{position:absolute;left:24px;right:24px;bottom:20px}
+  .vid .cap small{color:var(--orange-l);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem}
+  .vid .cap h3{font-size:1.4rem}
+  .vid.playing .shade,.vid.playing .pbtn,.vid.playing .cap,.vid.playing img{display:none}
+  .vid-side{display:grid;gap:24px;align-content:start}
+  .vid-side .vid{aspect-ratio:16/10}
+  .quote{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:28px}
+  .quote p{font-family:Kanit;font-size:1.35rem;line-height:1.3;font-weight:500}
+  .quote p b{color:var(--orange)}
+  @media (max-width:940px){.vid-grid{grid-template-columns:1fr}}
+
+  /* ---------- Results ---------- */
+  .res-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:60px;align-items:center}
+  .chart{background:var(--soft);border:1px solid var(--line);border-radius:24px;padding:34px 30px 22px}
+  .chart h3{color:var(--navy);font-size:1.3rem;margin-bottom:4px}
+  .chart .sub{color:var(--muted);font-size:.9rem}
+  .bars{display:flex;align-items:flex-end;gap:16px;height:280px;margin-top:20px;border-bottom:2px solid var(--line)}
+  .bar{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+  .bar .col{width:100%;max-width:76px;height:0;border-radius:12px 12px 0 0;background:linear-gradient(180deg,#4a4aa8,var(--navy));transition:height 1.4s var(--ease)}
+  .bar:last-child .col{background:linear-gradient(180deg,var(--orange-l),var(--orange))}
+  .bar .val{font-family:Kanit;font-weight:700;font-size:1.2rem;color:var(--navy);margin-bottom:8px;opacity:0;transition:opacity .6s .9s}
+  .chart.in .bar .val{opacity:1}
+  .years{display:flex;gap:16px;margin-top:10px}
+  .years span{flex:1;text-align:center;font-weight:600;color:var(--muted);font-size:.9rem}
+  .uni{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;border:1px solid var(--line);margin-bottom:12px;font-weight:600;color:var(--navy);transition:transform .3s var(--ease),border-color .3s}
+  .uni:hover{transform:translateX(6px);border-color:var(--orange)}
+  .uni i{width:38px;height:38px;flex:none;border-radius:10px;background:rgba(238,114,35,.12);display:grid;place-items:center}
+  .uni i svg{width:20px;height:20px;stroke:var(--orange)}
+  .areas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .areas span{background:var(--navy);color:#fff;padding:8px 16px;border-radius:999px;font-size:.88rem;font-weight:600}
+  .areas span:last-child{background:var(--orange)}
+  @media (max-width:940px){.res-grid{grid-template-columns:1fr}.bars{height:220px;gap:10px}.years{gap:10px}}
+
+  /* ---------- Polos ---------- */
+  .polos{background:var(--soft)}
+  .polo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+  .polo{grid-column:span 2;position:relative;border-radius:22px;overflow:hidden;min-height:340px;color:#fff;display:flex;align-items:flex-end;isolation:isolate}
+  .polo:nth-child(4),.polo:nth-child(5){grid-column:span 3}
+  .polo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .9s var(--ease)}
+  .polo::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,18,56,0) 35%,rgba(18,18,56,.92));transition:background .4s}
+  .polo:hover img{transform:scale(1.08)}
+  .polo .info{padding:24px;width:100%}
+  .polo small{display:inline-block;background:var(--orange);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
+  .polo h3{font-size:1.6rem;margin:8px 0 4px}
+  .polo p{font-size:.9rem;color:#dcdcf0;max-height:0;opacity:0;overflow:hidden;transition:max-height .5s var(--ease),opacity .4s}
+  .polo:hover p,.polo:focus-within p{max-height:120px;opacity:1}
+  @media (hover:none){.polo p{max-height:none;opacity:1}}
+  @media (max-width:940px){.polo-grid{grid-template-columns:1fr 1fr}.polo,.polo:nth-child(4),.polo:nth-child(5){grid-column:span 1}.polo:nth-child(5){grid-column:span 2}}
+  @media (max-width:580px){.polo-grid{grid-template-columns:1fr}.polo,.polo:nth-child(5){grid-column:span 1;min-height:280px}}
+
+  .sched{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+  .slot{background:#fff;border-radius:18px;padding:24px;display:flex;align-items:center;gap:18px;border:1px solid var(--line)}
+  .slot i{width:52px;height:52px;flex:none;border-radius:14px;background:var(--navy);display:grid;place-items:center}
+  .slot i svg{width:26px;height:26px;stroke:var(--orange-l)}
+  .slot b{display:block;color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em}
+  .slot span{font-family:Kanit;font-weight:700;font-size:1.5rem;color:var(--navy)}
+  @media (max-width:760px){.sched{grid-template-columns:1fr}}
+
+  /* ---------- Motivation ---------- */
+  .motive{background:var(--navy);color:#fff;overflow:hidden}
+  .motive-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .motive h2{font-size:clamp(2.2rem,5vw,3.8rem);text-transform:uppercase;font-weight:800;line-height:1}
+  .motive h2 span{color:var(--orange)}
+  .motive p{color:#c9c9e4;font-size:1.1rem;margin:20px 0 32px;max-width:480px}
+  .poster{border-radius:24px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.7);transform:rotate(2.5deg);transition:transform .6s var(--ease)}
+  .poster:hover{transform:rotate(0) scale(1.02)}
+  @media (max-width:940px){.motive-grid{grid-template-columns:1fr}.poster{max-width:460px;margin:0 auto}}
+
+  /* ---------- Enroll ---------- */
+  .enroll-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:60px;align-items:start}
+  .contacts{display:grid;gap:14px}
+  .contacts a{display:flex;gap:16px;align-items:center;text-decoration:none;padding:18px 20px;border-radius:16px;border:1px solid var(--line);background:#fff;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+  .contacts a:hover{transform:translateY(-3px);border-color:var(--orange);box-shadow:0 16px 30px -20px rgba(238,114,35,.6)}
+  .contacts i{width:48px;height:48px;flex:none;border-radius:14px;background:rgba(238,114,35,.12);display:grid;place-items:center}
+  .contacts i svg{width:22px;height:22px;stroke:var(--orange)}
+  .contacts small{display:block;color:var(--muted);font-size:.82rem;font-weight:500}
+  .contacts strong{font-family:Kanit;font-size:1.2rem;color:var(--navy);font-weight:600}
+  form{background:var(--navy);color:#fff;border-radius:28px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:18px;position:relative;overflow:hidden;box-shadow:0 40px 80px -40px rgba(42,42,113,.8)}
+  form::before{content:"";position:absolute;top:-120px;right:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(238,114,35,.4),transparent 70%)}
+  form > *{position:relative}
+  form h3{grid-column:1/-1;font-size:1.8rem}
+  form .lead{grid-column:1/-1;color:#c9c9e4;margin-top:-10px;font-size:.95rem}
+  .full{grid-column:1/-1}
+  label{display:grid;gap:7px;font-size:.85rem;font-weight:600;color:#e4e4f3}
+  input,select{font:inherit;font-size:.98rem;font-weight:500;padding:14px 16px;border:1.5px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(255,255,255,.07);color:#fff;width:100%;transition:border-color .25s,background .25s,box-shadow .25s}
+  input::placeholder{color:#9a9ac0}
+  select option{color:#1c1c3a}
+  input[type=date]{color-scheme:dark}
+  input:focus,select:focus{outline:none;border-color:var(--orange);background:rgba(255,255,255,.12);box-shadow:0 0 0 4px rgba(238,114,35,.25)}
+  form .btn{width:100%;justify-content:center;font-size:1.1rem}
+  .ok{grid-column:1/-1;display:none;background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.5);padding:12px;border-radius:12px;text-align:center;font-weight:600}
+  .ok.show{display:block;animation:fin .5s var(--ease)}
+  .fnote{grid-column:1/-1;font-size:.8rem;color:#a9a9cc;text-align:center}
+  @media (max-width:940px){.enroll-grid{grid-template-columns:1fr}}
+  @media (max-width:540px){form{grid-template-columns:1fr;padding:26px}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy-dd);color:#a9a9cc;padding:56px 0 30px}
+  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .foot img{height:54px;width:auto;margin-bottom:16px}
+  .foot h4{color:#fff;font-size:1.1rem;margin-bottom:14px}
+  .foot ul{list-style:none;display:grid;gap:8px;font-size:.92rem}
+  .foot a{text-decoration:none}
+  .foot a:hover{color:var(--orange-l)}
+  .copy{padding-top:24px;font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  @media (max-width:760px){.foot{grid-template-columns:1fr}}
+
+  /* ---------- Floating WA + modal ---------- */
+  .wa{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;z-index:70;box-shadow:0 12px 30px -8px rgba(0,0,0,.45);animation:pulseg 2.4s infinite}
+  @keyframes pulseg{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}100%{box-shadow:0 0 0 18px rgba(37,211,102,0)}}
+  .wa svg{width:30px;height:30px;fill:#fff}
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(10,10,35,.9);display:none;place-items:center;padding:20px}
+  .modal.open{display:grid;animation:fin .3s}
+  .modal video{width:min(1000px,100%);border-radius:18px;box-shadow:0 40px 80px rgba(0,0,0,.6)}
+  .modal button{position:absolute;top:18px;right:18px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--navy);font-size:1.6rem;cursor:pointer}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.left{transform:translateX(-40px)}
+  .reveal.right{transform:translateX(40px)}
+  .reveal.left.in,.reveal.right.in{transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    .hero h1 .line span{transform:none}
+    .fade-in{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#inicio" class="brand" aria-label="Turma dos Revoltados — início"><img src="assets/logo.svg" alt="Turma dos Revoltados"></a>
+    <nav aria-label="Principal">
+      <ul id="menu">
+        <li><a href="#turmas">Turmas</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#videos">Vídeos</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#polos">Polos</a></li>
+        <li><a href="#inscricao">Contacto</a></li>
+      </ul>
+    </nav>
+    <a href="#inscricao" class="btn btn-orange">Inscreve-te</a>
+    <button class="burger" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- HERO -->
+  <section class="hero">
+    <video class="hero-video" src="assets/video-fundo.mp4" poster="assets/video-capa.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tag fade-in"><i></i>Inscrições abertas em Fevereiro · Vagas limitadas</span>
+        <h1>
+          <span class="line"><span>Novas turmas</span></span>
+          <span class="line"><span class="o">2025/2026</span></span>
+        </h1>
+        <p class="lead fade-in" style="animation-delay:.35s">Preparação completa para os exames de admissão às universidades — do básico ao avançado. Sê um revoltado: junta-te a nós.</p>
+        <div class="ctas fade-in" style="animation-delay:.5s">
+          <a class="btn btn-orange" href="#inscricao">Fazer pré-inscrição
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-line" href="https://chat.whatsapp.com/BmLSsYtOuYmDdlphznnSwA" target="_blank" rel="noopener">Entrar no WhatsApp</a>
+        </div>
+        <button class="play fade-in" style="animation-delay:.65s" data-modal>
+          <b><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></b>
+          Ver o nosso vídeo
+        </button>
+      </div>
+
+      <aside class="price-card fade-in" style="animation-delay:.45s" aria-label="Preços">
+        <span class="ribbon">Turmas de ouro</span>
+        <h3>Turmas de Março</h3>
+        <p class="sub">Do básico ao avançado — o programa mais completo do ano.</p>
+        <div class="prices">
+          <div><small>Inscrição</small><strong>500<sup>MZN</sup></strong></div>
+          <div><small>Mensalidade</small><strong>650<sup>MZN</sup></strong></div>
+        </div>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Aulas teóricas e práticas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Avaliações regulares</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Exames de pré-admissão</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>Seminários académicos</li>
+        </ul>
+      </aside>
+    </div>
+    <span class="scroll-hint" aria-hidden="true"></span>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Engenharia</span><span>Medicina</span><span>Direito</span><span>Contabilidade</span><span>Economia</span><span>Gestão</span><span>E muito mais</span>
+      <span>Engenharia</span><span>Medicina</span><span>Direito</span><span>Contabilidade</span><span>Economia</span><span>Gestão</span><span>E muito mais</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Números">
+    <div class="wrap stats-grid">
+      <div class="stat reveal"><strong><span data-count="99">0</span><em>%</em></strong><span>taxa de admissão</span></div>
+      <div class="stat reveal d1"><strong><span data-count="671">0</span></strong><span>alunos admitidos em 2023</span></div>
+      <div class="stat reveal d2"><strong><span data-count="5">0</span></strong><span>polos em Maputo e Matola</span></div>
+      <div class="stat reveal d3"><strong><span data-count="3">0</span></strong><span>horários por dia</span></div>
+    </div>
+  </section>
+
+  <!-- TURMAS DE OURO -->
+  <section id="turmas" class="gold">
+    <div class="wrap gold-grid">
+      <div class="gold-text">
+        <span class="eyebrow reveal">Turmas de ouro</span>
+        <h2 class="reveal d1">Começa em Março.<br><span>Entra na universidade.</span></h2>
+        <p class="reveal d2">Os alunos das turmas de Março são admitidos porque têm tempo para cobrir toda a matéria — dos fundamentos ao nível de exame.</p>
+        <ol class="steps">
+          <li class="reveal d2"><span class="n">1</span><div><h4>Base sólida</h4><p>Revemos a matéria desde o início.</p></div></li>
+          <li class="reveal d3"><span class="n">2</span><div><h4>Prática constante</h4><p>Aulas práticas e avaliações regulares.</p></div></li>
+          <li class="reveal d4"><span class="n">3</span><div><h4>Simulação real</h4><p>Exames de pré-admissão no formato da prova.</p></div></li>
+        </ol>
+        <a href="#inscricao" class="btn btn-navy reveal d5">Garantir a minha vaga
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="gold-img reveal right"><img src="assets/estudantes.jpg" alt="Estudantes sorridentes com livros" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="servicos">
+    <div class="wrap">
+      <div class="head center">
+        <span class="eyebrow reveal">O que está incluído</span>
+        <h2 class="reveal d1">Tudo o que precisas para entrar</h2>
+        <p class="reveal d2">Uma preparação completa para os exames de admissão às universidades moçambicanas.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM8 7h8M8 11h6"/></svg></div><h3>Aulas teóricas</h3><p>Explicação estruturada de toda a matéria do exame.</p></article>
+        <article class="card reveal d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><h3>Aulas práticas</h3><p>Resolução de exercícios e de exames anteriores.</p></article>
+        <article class="card reveal d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div><h3>Avaliações regulares</h3><p>Testes periódicos para acompanhar a tua evolução.</p></article>
+        <article class="card reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Exames de pré-admissão</h3><p>Simulações com tempo e formato reais.</p></article>
+        <article class="card reveal d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><h3>Seminários académicos</h3><p>Orientação sobre cursos e vida universitária.</p></article>
+        <article class="card reveal d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Perto de ti</h3><p>5 polos e 3 horários para encaixar na tua rotina.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section id="videos" class="videos">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow reveal">Vídeos</span>
+        <h2 class="reveal d1">Conhece a Turma dos Revoltados</h2>
+        <p class="reveal d2">Vê como é o dia a dia connosco e ouve quem já passou por cá.</p>
+      </div>
+      <div class="vid-grid">
+        <div class="vid reveal left" id="vidMain" role="button" tabindex="0" aria-label="Reproduzir vídeo institucional">
+          <img src="assets/video-capa.jpg" alt="" loading="lazy">
+          <span class="shade"></span>
+          <span class="pbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="cap"><small>Vídeo institucional</small><h3>Sê um revoltado — junta-te a nós</h3></div>
+        </div>
+        <div class="vid-side">
+          <div class="vid reveal right" id="vidYT" role="button" tabindex="0" aria-label="Reproduzir testemunho da Ana Steny no YouTube" data-yt="WV4MIfQl4gU">
+            <img src="assets/testemunho-ana-steny.jpg" alt="" loading="lazy">
+            <span class="shade"></span>
+            <span class="pbtn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+            <div class="cap"><small>Testemunho</small><h3>Ana Steny</h3></div>
+          </div>
+          <div class="quote reveal right d2">
+            <p>O que fizeste nos meses anteriores <b>não importa.</b> O que importa é o que farás agora para realizar os teus sonhos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="resultados">
+    <div class="wrap res-grid">
+      <div class="chart reveal left" id="chart">
+        <h3>Alunos admitidos por ano</h3>
+        <p class="sub">Cada ano, mais revoltados entram na universidade.</p>
+        <div class="bars" role="img" aria-label="Alunos admitidos: 2019 96, 2020 179, 2021 281, 2022 366, 2023 671">
+          <div class="bar"><span class="val">96</span><div class="col" data-h="14"></div></div>
+          <div class="bar"><span class="val">179</span><div class="col" data-h="27"></div></div>
+          <div class="bar"><span class="val">281</span><div class="col" data-h="42"></div></div>
+          <div class="bar"><span class="val">366</span><div class="col" data-h="55"></div></div>
+          <div class="bar"><span class="val">671</span><div class="col" data-h="100"></div></div>
+        </div>
+        <div class="years"><span>2019</span><span>2020</span><span>2021</span><span>2022</span><span>2023</span></div>
+      </div>
+      <div>
+        <div class="head" style="margin-bottom:28px">
+          <span class="eyebrow reveal">Resultados</span>
+          <h2 class="reveal d1">Onde os nossos alunos entraram</h2>
+        </div>
+        <div class="uni reveal d1"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5"/></svg></i>Universidade Eduardo Mondlane</div>
+        <div class="uni reveal d2"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5"/></svg></i>Universidade Pedagógica</div>
+        <div class="uni reveal d3"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5"/></svg></i>Universidade Joaquim Chissano</div>
+        <div class="uni reveal d4"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5"/></svg></i>Instituto Superior ISCAM</div>
+        <div class="uni reveal d5"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5"/></svg></i>Outras universidades</div>
+        <div class="areas reveal d5"><span>Engenharia</span><span>Medicina</span><span>Direito</span><span>Contabilidade</span><span>Economia</span><span>Gestão</span><span>E muito mais</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLOS -->
+  <section id="polos" class="polos">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow reveal">Polos e horários</span>
+        <h2 class="reveal d1">Estuda perto de casa</h2>
+        <p class="reveal d2">Cinco polos em Maputo e Matola, com turmas de manhã, tarde e noite.</p>
+      </div>
+      <div class="polo-grid">
+        <article class="polo reveal" tabindex="0"><img src="assets/polo-magoanine.jpg" alt="Fachada do polo de Magoanine" loading="lazy"><div class="info"><small>Polo</small><h3>Magoanine</h3></div></article>
+        <article class="polo reveal d1" tabindex="0"><img src="assets/polo-bagamoyo.jpg" alt="Fachada do polo de Bagamoyo" loading="lazy"><div class="info"><small>Polo</small><h3>Bagamoyo</h3></div></article>
+        <article class="polo reveal d2" tabindex="0"><img src="assets/polo-zimpeto.jpg" alt="Polo do Zimpeto" loading="lazy"><div class="info"><small>Polo</small><h3>Zimpeto</h3><p>Perto do parque de chapas do Zimpeto, no fim do muro do centro de saúde, perto da Escola Portuguesa.</p></div></article>
+        <article class="polo reveal" tabindex="0"><img src="assets/polo-matola.jpg" alt="Polo da Matola, João Mateus" loading="lazy"><div class="info"><small>Polo</small><h3>Matola — João Mateus</h3><p>Em João Mateus, na entrada da Matola C (onde tem Moza Banco), logo ao lado da Mesquita.</p></div></article>
+        <article class="polo reveal d1" tabindex="0"><img src="assets/polo-patrice-lumumba.jpg" alt="Sala de aula do polo Patrice Lumumba" loading="lazy"><div class="info"><small>Polo</small><h3>Patrice Lumumba</h3></div></article>
+      </div>
+      <div class="sched">
+        <div class="slot reveal"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></i><div><b>Manhã</b><span>08:00 – 11:00</span></div></div>
+        <div class="slot reveal d1"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0M12 2v7M4.2 10.2l1.4 1.4M1 18h2M21 18h2M18.4 11.6l1.4-1.4M23 22H1M8 6l4-4 4 4"/></svg></i><div><b>Tarde</b><span>13:00 – 16:00</span></div></div>
+        <div class="slot reveal d2"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></i><div><b>Noite</b><span>18:00 – 20:30</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTIVATION -->
+  <section class="motive">
+    <div class="wrap motive-grid">
+      <div>
+        <span class="eyebrow reveal">Sê um revoltado</span>
+        <h2 class="reveal d1">Estás cansado de brincar e queres <span>estudar de verdade?</span></h2>
+        <p class="reveal d2">Junta-te a nós. As vagas para as novas turmas são limitadas.</p>
+        <a href="#inscricao" class="btn btn-orange reveal d3">Quero inscrever-me
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="poster reveal right"><img src="assets/cartaz.jpg" alt="Cartaz: O que você fez nos meses anteriores não importa. O que importa é o que fará agora para realizar seus sonhos." loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- ENROLL -->
+  <section id="inscricao">
+    <div class="wrap enroll-grid">
+      <div>
+        <div class="head" style="margin-bottom:30px">
+          <span class="eyebrow reveal">Pré-inscrição</span>
+          <h2 class="reveal d1">Garante já a tua vaga</h2>
+          <p class="reveal d2">Preenche o formulário ou fala connosco diretamente. Estamos aqui para te ajudar.</p>
+        </div>
+        <div class="contacts">
+          <a class="reveal d1" href="tel:+258841966768"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></i><span><small>Telefone</small><strong>84 196 6768</strong></span></a>
+          <a class="reveal d2" href="tel:+258842600278"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></i><span><small>Telefone</small><strong>84 260 0278</strong></span></a>
+          <a class="reveal d3" href="https://chat.whatsapp.com/BmLSsYtOuYmDdlphznnSwA" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg></i><span><small>Grupo de inscrições</small><strong>Entrar no WhatsApp</strong></span></a>
+          <a class="reveal d4" href="https://chat.whatsapp.com/J9qkqwKzJeB7e0xi0UxI4R" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></i><span><small>Dúvidas?</small><strong>Nós podemos ajudar-te</strong></span></a>
+        </div>
+      </div>
+
+      <form id="preForm" class="reveal right" novalidate>
+        <h3>Formulário de pré-inscrição</h3>
+        <p class="lead">Leva menos de um minuto.</p>
+        <label class="full">Nome completo<input name="nome" required autocomplete="name" placeholder="O teu nome"></label>
+        <label>Bairro<input name="bairro" required placeholder="Ex.: Zimpeto"></label>
+        <label>Data de nascimento<input name="nascimento" type="date" required></label>
+        <label>Local de estudo
+          <select name="polo" required>
+            <option value="">Escolher polo</option>
+            <option>Magoanine</option><option>Bagamoyo</option><option>Zimpeto</option><option>Matola — João Mateus</option><option>Patrice Lumumba</option>
+          </select>
+        </label>
+        <label>Horário
+          <select name="horario" required>
+            <option value="">Escolher horário</option>
+            <option>Manhã (08:00 – 11:00)</option><option>Tarde (13:00 – 16:00)</option><option>Noite (18:00 – 20:30)</option>
+          </select>
+        </label>
+        <label class="full">Telemóvel<input name="telemovel" type="tel" required placeholder="84 000 0000" autocomplete="tel"></label>
+        <div class="full"><button class="btn btn-orange" type="submit">Submeter
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button></div>
+        <div class="ok" id="ok">Submetido com sucesso! Continua no WhatsApp para enviar os teus dados.</div>
+        <p class="fnote">Ao submeter, o WhatsApp abre com os teus dados já preenchidos.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="assets/logo.svg" alt="Turma dos Revoltados">
+        <p>Preparação para exames de admissão às universidades em Maputo e Matola.</p>
+      </div>
+      <div>
+        <h4>Polos</h4>
+        <ul><li>Magoanine</li><li>Bagamoyo</li><li>Zimpeto</li><li>Matola — João Mateus</li><li>Patrice Lumumba</li></ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+258841966768">84 196 6768</a></li>
+          <li><a href="tel:+258842600278">84 260 0278</a></li>
+          <li><a href="https://chat.whatsapp.com/BmLSsYtOuYmDdlphznnSwA" target="_blank" rel="noopener">Grupo WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> Turma dos Revoltados</span><a href="#inicio">Voltar ao topo ↑</a></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://chat.whatsapp.com/BmLSsYtOuYmDdlphznnSwA" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.6 14.6 0 0 0 5.6 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Vídeo institucional">
+  <button aria-label="Fechar">×</button>
+  <video id="modalVideo" src="assets/video-institucional.mp4" controls playsinline preload="none"></video>
+</div>
+
+<script>
+  const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
+  $('#yr').textContent = new Date().getFullYear();
+
+  // Header solid on scroll
+  const header = $('#top');
+  const onScroll = () => header.classList.toggle('solid', scrollY > 40);
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // Mobile menu
+  const menu = $('#menu'), burger = $('.burger');
+  burger.addEventListener('click', () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+  $$('#menu a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+
+  // Count-up
+  const countUp = el => {
+    const end = +el.dataset.count, dur = 1600, t0 = performance.now();
+    const step = t => { const p = Math.min((t - t0) / dur, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+
+  // Reveal on scroll + triggers
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    e.target.querySelectorAll('[data-count]').forEach(countUp);
+    if (e.target.id === 'chart') e.target.querySelectorAll('.col').forEach(c => c.style.height = c.dataset.h + '%');
+    io.unobserve(e.target);
+  }), {threshold:.18, rootMargin:'0px 0px -40px 0px'});
+  $$('.reveal').forEach(el => io.observe(el));
+
+  // Institutional video modal
+  const modal = $('#modal'), mv = $('#modalVideo');
+  const openModal = () => { modal.classList.add('open'); mv.play(); };
+  const closeModal = () => { modal.classList.remove('open'); mv.pause(); };
+  $$('[data-modal]').forEach(b => b.addEventListener('click', openModal));
+  modal.addEventListener('click', e => { if (e.target === modal || e.target.tagName === 'BUTTON') closeModal(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // Inline video players (click to play)
+  const activate = (el, fn) => { el.addEventListener('click', fn, {once:true}); el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); } }); };
+  activate($('#vidMain'), function () {
+    const v = document.createElement('video');
+    v.src = 'assets/video-institucional.mp4'; v.controls = true; v.autoplay = true; v.playsInline = true;
+    this.appendChild(v); this.classList.add('playing');
+  });
+  activate($('#vidYT'), function () {
+    const f = document.createElement('iframe');
+    f.src = `https://www.youtube.com/embed/${this.dataset.yt}?autoplay=1&rel=0`;
+    f.allow = 'autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen = true; f.title = 'Testemunho Ana Steny';
+    this.appendChild(f); this.classList.add('playing');
+  });
+
+  // Pause background video for reduced motion
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) $('.hero-video').pause();
+
+  // Pre-registration → WhatsApp
+  const WHATSAPP_NUMBER = '258841966768';
+  $('#preForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target;
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    const d = Object.fromEntries(new FormData(f));
+    const msg = `Olá! Quero fazer a pré-inscrição na Turma dos Revoltados.\n\n` +
+      `Nome: ${d.nome}\nBairro: ${d.bairro}\nData de nascimento: ${d.nascimento}\n` +
+      `Polo: ${d.polo}\nHorário: ${d.horario}\nTelemóvel: ${d.telemovel}`;
+    $('#ok').classList.add('show');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    f.reset();
+  });
+</script>
+</body>
+</html>
